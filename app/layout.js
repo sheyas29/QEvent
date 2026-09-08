@@ -1,26 +1,27 @@
-import { Inter } from "next/font/google";
-import "./globals.css";
-import Header from "@/components/Header";
-import { ThemeProvider } from "@/components/theme-provider";
-import SessionWrapper from "@/components/SessionWrapper";
+import { Inter } from 'next/font/google';
+import './globals.css';
 
-const inter = Inter({ subsets: ["latin"] });
+import Header from '@/components/Header';
+import SessionWrapper from '@/components/SessionWrapper';
+import { ThemeProvider } from '@/components/theme-provider';
+
+const inter = Inter({ subsets: ['latin'] });
 
 export const metadata = {
-  title: "QEvent",
+  title: 'QEvent',
 };
 
 export default function RootLayout({ children }) {
   return (
-    <SessionWrapper>
-      <html lang="en">
-        <body className={inter.className}>
+    <html lang="en">
+      <body className={inter.className}>
+        <SessionWrapper>
           <ThemeProvider attribute="class" defaultTheme="light">
             <Header />
             {children}
           </ThemeProvider>
-        </body>
-      </html>
-    </SessionWrapper>
+        </SessionWrapper>
+      </body>
+    </html>
   );
 }
